@@ -1,0 +1,89 @@
+#
+# Apple Mac OS X filesystem layout
+#
+
+# This is the layout found on Apple Mac OS X when installing
+# everything into /Library and /usr/local.  Use this on Apple Mac OS X
+# to compile and install software that uses the native Apple
+# frameworks (ie, using the apple-apple-apple library-combo).
+#
+# Basically, it's a the Apple Mac OS X filesystem with all domains
+# mapped into the same /Library and /usr/local directory.
+#
+# To use gnustep-make in this environment, source GNUstep.sh or use
+# 'export GNUSTEP_MAKEFILES=/Library/GNUstep/Makefiles'.
+
+# The prefix is the root of the whole heirarchy, so it's just /.
+# NB: $prefix will be added to all the MAKEFILES/SYSTEM/NETWORK/LOCAL paths.
+GNUSTEP_DEFAULT_PREFIX=/
+GNUSTEP_MAKEFILES=/Library/GNUstep/Makefiles
+
+# Domains are ordered "upside-down" to allow for variable re-use.
+GNUSTEP_USER_DIR_LIBRARY=Library
+GNUSTEP_USER_DIR_APPS=Applications
+GNUSTEP_USER_DIR_ADMIN_APPS=$GNUSTEP_USER_DIR_APPS/Utilities
+GNUSTEP_USER_DIR_WEB_APPS=Sites
+GNUSTEP_USER_DIR_TOOLS=Tools
+GNUSTEP_USER_DIR_ADMIN_TOOLS=$GNUSTEP_USER_DIR_TOOLS
+GNUSTEP_USER_DIR_HEADERS=$GNUSTEP_USER_DIR_LIBRARY/Headers
+GNUSTEP_USER_DIR_LIBRARIES=$GNUSTEP_USER_DIR_LIBRARY/Libraries
+GNUSTEP_USER_DIR_DOC=$GNUSTEP_USER_DIR_LIBRARY/Documentation
+GNUSTEP_USER_DIR_DOC_MAN=$GNUSTEP_USER_DIR_DOC/man
+GNUSTEP_USER_DIR_DOC_INFO=$GNUSTEP_USER_DIR_DOC/info
+GNUSTEP_USER_DEFAULTS_DIR=$GNUSTEP_USER_DIR_LIBRARY/Preferences
+GNUSTEP_USER_APPLICATION_SUPPORT="$GNUSTEP_USER_DIR_LIBRARY/Application\ Support" # Spaces must be double-escaped
+GNUSTEP_USER_JAVA=$GNUSTEP_USER_DIR_LIBRARY/Java
+GNUSTEP_USER_CONFIG_FILE=$GNUSTEP_USER_DEFAULTS_DIR/GNUstep.conf
+
+# Local domain is similar to user, but rooted at /
+GNUSTEP_LOCAL_LIBRARY=/$GNUSTEP_USER_DIR_LIBRARY
+GNUSTEP_LOCAL_APPS=/$GNUSTEP_USER_DIR_APPS
+GNUSTEP_LOCAL_ADMIN_APPS=$GNUSTEP_LOCAL_APPS/Utilities
+GNUSTEP_LOCAL_WEB_APPS="$GNUSTEP_LOCAL_LIBRARY/Web\ Server" # Spaces must be double-escaped
+GNUSTEP_LOCAL_TOOLS=/usr/local/bin
+GNUSTEP_LOCAL_ADMIN_TOOLS=/usr/local/sbin
+GNUSTEP_LOCAL_HEADERS=/usr/local/include
+GNUSTEP_LOCAL_LIBRARIES=/usr/local/lib
+GNUSTEP_LOCAL_DOC=$GNUSTEP_LOCAL_LIBRARY/Documentation
+GNUSTEP_LOCAL_DOC_MAN=/usr/local/share/man
+GNUSTEP_LOCAL_DOC_INFO=/usr/local/share/info
+GNUSTEP_LOCAL_APPLICATION_SUPPORT="$GNUSTEP_LOCAL_LIBRARY/Application\ Support" # Spaces must be double-escaped
+GNUSTEP_LOCAL_JAVA=$GNUSTEP_LOCAL_LIBRARY/Java
+
+# Network domain is similar to user and Local, but rooted at /Network
+GNUSTEP_NETWORK_LIBRARY=/Network/$GNUSTEP_USER_DIR_LIBRARY
+GNUSTEP_NETWORK_APPS=/Network/$GNUSTEP_USER_DIR_APPS
+GNUSTEP_NETWORK_ADMIN_APPS=$GNUSTEP_NETWORK_APPS/Utilities
+GNUSTEP_NETWORK_WEB_APPS=/Network/$GNUSTEP_USER_DIR_WEB_APPS
+GNUSTEP_NETWORK_TOOLS=/Network/usr/bin
+GNUSTEP_NETWORK_ADMIN_TOOLS=/Network/usr/sbin
+GNUSTEP_NETWORK_HEADERS=/Network/usr/include
+GNUSTEP_NETWORK_LIBRARIES=/Network/usr/lib
+GNUSTEP_NETWORK_DOC=$GNUSTEP_NETWORK_LIBRARY/Documentation
+GNUSTEP_NETWORK_DOC_MAN=/Network/usr/share/man
+GNUSTEP_NETWORK_DOC_INFO=/Network/usr/share/info
+GNUSTEP_NETWORK_APPLICATION_SUPPORT="$GNUSTEP_NETWORK_LIBRARY/Application\ Support" # Spaces must be double-escaped
+GNUSTEP_NETWORK_JAVA=$GNUSTEP_NETWORK_LIBRARY/Java
+
+# On macOS 11, the System domain is reinflated and contains many expected directories.
+GNUSTEP_SYSTEM_LIBRARY=/System/Library
+GNUSTEP_SYSTEM_APPS=/System/Applications
+GNUSTEP_SYSTEM_ADMIN_APPS=$GNUSTEP_SYSTEM_APPS/Utilities
+GNUSTEP_SYSTEM_WEB_APPS="$GNUSTEP_SYSTEM_LIBRARY/Web\ Server" # Spaces must be double-escaped
+GNUSTEP_SYSTEM_TOOLS=/usr/bin
+GNUSTEP_SYSTEM_ADMIN_TOOLS=/usr/sbin
+GNUSTEP_SYSTEM_HEADERS=/usr/include
+GNUSTEP_SYSTEM_LIBRARIES=/usr/lib
+GNUSTEP_SYSTEM_DOC=$GNUSTEP_SYSTEM_LIBRARY/Documentation
+GNUSTEP_SYSTEM_DOC_MAN=/usr/share/man
+GNUSTEP_SYSTEM_DOC_INFO=/usr/share/info
+GNUSTEP_SYSTEM_APPLICATION_SUPPORT="$GNUSTEP_SYSTEM_LIBRARY/Application\ Support" # Spaces must be double-escaped
+GNUSTEP_SYSTEM_JAVA=$GNUSTEP_SYSTEM_LIBRARY/Java
+tooldir=$GNUSTEP_LOCAL_TOOLS
+
+
+# These are only used by gnustep-base to implement the NSUserDirectory API.
+GNUSTEP_SYSTEM_USERS_DIR=
+GNUSTEP_NETWORK_USERS_DIR=/Network/Users
+GNUSTEP_LOCAL_USERS_DIR=/Users
+
