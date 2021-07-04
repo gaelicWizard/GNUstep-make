@@ -333,7 +333,7 @@ ifneq ($(GNUSTEP_INSTALLATION_DIR),)
   GNUSTEP_APPLICATION_SUPPORT  = $(GNUSTEP_LIBRARY)/ApplicationSupport
   GNUSTEP_BUNDLES              = $(GNUSTEP_LIBRARY)/Bundles
   GNUSTEP_FRAMEWORKS           = $(GNUSTEP_LIBRARY)/Frameworks
-  GNUSTEP_PALETTES             = $(GNUSTEP_LIBRARY)/ApplicationSupport/Palettes
+  GNUSTEP_PALETTES             = $(GNUSTEP_APPLICATION_SUPPORT)/Palettes
   GNUSTEP_LIBRARIES            = $(GNUSTEP_INSTALLATION_DIR)/Library/Libraries
   GNUSTEP_RESOURCES            = $(GNUSTEP_LIBRARY)/Libraries/Resources
   GNUSTEP_JAVA                 = $(GNUSTEP_LIBRARY)/Libraries/Java
